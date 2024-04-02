@@ -24,8 +24,16 @@ def remove(nums: list[int], index: int):
   print(nums)
   
   
-
-  
+def traverse(nums: list[int]):
+  """遍历数组"""
+  count = 0
+  for i in range(len(nums)):
+    count += 1
+  for num in nums:
+    count += 1
+  for i,num in enumerate(nums):
+    count += 1
+  print(nums)
   
 arr: list[int] = [0] * 5
 # print(arr)
@@ -33,4 +41,4 @@ nums: list[int] = [1, 3, 2, 5, 4]
 # print(nums)
 print(random_access(nums))
 insert(nums, 4, 8)
-
+traverse(nums)
