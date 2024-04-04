@@ -65,3 +65,4 @@ else:
   print("没有找到目标值")
 # 扩展数组
 print(f"扩展后的数组为: {extend(nums, 3)}")
+#今天浪费一天
