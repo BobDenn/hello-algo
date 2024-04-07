@@ -7,7 +7,6 @@ def random_access(nums: list[int]) -> int:
   random_num = nums[random_index]
   return random_num
 
-
 def insert(nums: list[int], index: int, num: int):
   """在数组的 index 处插入元素num"""
   # index 处的数字往后挤
@@ -15,12 +14,10 @@ def insert(nums: list[int], index: int, num: int):
     nums[i] = nums[i - 1]
   nums[index] = num
 
-
 def remove(nums: list[int], index: int):
   """删除index处的num"""
   for i in range(index, len(nums)-1):
     nums[index] = nums[index+1]
-
 
 def traverse(nums: list[int]):
   """遍历数组"""
@@ -34,14 +31,12 @@ def traverse(nums: list[int]):
     count += 1
   return nums
 
-
 def find(nums: list[int], target: int) -> int:
   """find target"""
   for i, num in enumerate(nums):
     if nums[i] == target:
       return i, num
   return -1
-
 
 def extend(nums: list[int], large: int) -> list[int]:
   """扩展数组"""
