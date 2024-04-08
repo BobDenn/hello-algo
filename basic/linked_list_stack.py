@@ -18,18 +18,33 @@ class LinkedListStack:
     def push(self, val: int):
         """入栈"""
         node = linked_list.ListNode(val)
-        node.next = self._peak
         # 栈顶的next指向当前栈顶
+        node.next = self._peak
         self._peak = node
         self._size += 1
     
-    def peak(self) -> int:
+    def peak_val(self) -> int:
+        """返回栈顶元素"""
         if self.is_empty():
             raise IndexError("栈为空")
         return self._peak.val
     
     def pop(self) -> int:
         """出栈"""
-        num = self._peak()
+        num = self.peak_val()
         self._peak = self._peak.next
         return num
+    
+    def seeinlist(self) -> list[int]:
+        """在列表中查看栈"""
+        arr = []
+        node = self._peak
+        while node:
+            arr.append(node.val)
+            node = node.next
+        arr.reverse()
+        print(arr)
+
+if __name__ == "__main__":
+    stack = LinkedListStack()
+    print(stack.size)
