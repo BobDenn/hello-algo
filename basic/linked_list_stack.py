@@ -7,7 +7,7 @@ class LinkedListStack:
         self._peak: linked_list.ListNode | None = None
         self._size: int = 0
     
-    def size(self):
+    def size(self) -> int:
         """获取栈的长度"""
         return self._size
     
@@ -23,11 +23,11 @@ class LinkedListStack:
         self._peak = node
         self._size += 1
     
-    def peak_val(self) -> int:
+    def peak_val(self):
         """返回栈顶元素"""
         if self.is_empty():
             raise IndexError("栈为空")
-        return self._peak.val
+        print(self._peak.val)
     
     def pop(self) -> int:
         """出栈"""
@@ -42,9 +42,19 @@ class LinkedListStack:
         while node:
             arr.append(node.val)
             node = node.next
-        arr.reverse()
+        # arr.reverse()
         print(arr)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     stack = LinkedListStack()
-    print(stack.size)
+    # print(stack.is_empty())
+    stack.push(5)
+    stack.push(8)
+    stack.push(9)
+    stack.push(1)
+    stack.push(1)
+    stack.push(2)
+    # stack.seeinlist()  [2, 1, 1, 9, 8, 5]
+    print(stack.pop())
+    stack.seeinlist()
+    stack.peak_val()
