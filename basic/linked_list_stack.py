@@ -23,11 +23,11 @@ class LinkedListStack:
         self._peak = node
         self._size += 1
     
-    def peak_val(self):
+    def peak_val(self) -> int:
         """返回栈顶元素"""
         if self.is_empty():
             raise IndexError("栈为空")
-        print(self._peak.val)
+        return self._peak.val
     
     def pop(self) -> int:
         """出栈"""
@@ -57,4 +57,4 @@ if __name__ == '__main__':
     # stack.seeinlist()  [2, 1, 1, 9, 8, 5]
     print(stack.pop())
     stack.seeinlist()
-    stack.peak_val()
+    print(stack.peak_val())
