@@ -31,9 +31,17 @@ class ArrQueue:
         self._size += 1
         
     def pop(self):
+        """出队"""
         num = self.peak()
         self._front = (self._front + 1) % self.capacity()
         self._size -= 1
         return num
     
-    
+    def to_list(self) -> list[int]:
+        """遍历"""
+        res = [0] * self._size
+        j: int = self._front
+        for i in range(self._size):
+            res[i] = self._nums[j % self.capacity()]
+            j += 1
+        return res
