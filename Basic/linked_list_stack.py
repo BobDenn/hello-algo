@@ -42,7 +42,8 @@ class LinkedListStack:
         while node:
             arr.append(node.val)
             node = node.next
-        # arr.reverse()
+        # 取决于左边当栈底还是右边当栈底
+        arr.reverse()
         print(arr)
 
 if __name__ == '__main__':
