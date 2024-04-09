@@ -1,5 +1,5 @@
 class ArryStack:
-    """基于动态列表实现栈"""
+    """基于动态数组实现栈"""
     def __init__(self) -> None:
         """initial"""
         self._stack: list[int] = []

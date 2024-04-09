@@ -50,3 +50,13 @@ class Linkedlist_Queue:
             queue.append(temp.val)
             temp = temp.next
         return queue
+
+
+queue = Linkedlist_Queue()
+# print(queue.size())
+queue.push(23)
+queue.push(22)
+queue.push(21)
+queue.pop()
+print(queue.peak())
+print(queue.to_list())
