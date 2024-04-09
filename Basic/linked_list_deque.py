@@ -19,4 +19,13 @@ class LinkedListDeque:
     def is_empty(self) -> bool:
         return self._size == 0
     
+    def peek_front(self) -> int:
+        if self.is_empty():
+            raise IndexError("栈为空")
+        return self._front.val
+    
+    def peek_rear(self) -> int:
+        if self.is_empty():
+            raise IndexError("栈为空")
+        return self._rear.val
     
