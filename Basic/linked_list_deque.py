@@ -8,4 +8,15 @@ class ListNode:
 
 class LinkedListDeque:
     """base on double linked_list"""
-    pass
+    def __init__(self) -> None:
+        self._front: ListNode | None = None # head node
+        self._rear: ListNode | None = None # rear node
+        self._size: int = 0 # queue's length
+    
+    def size(self) -> int:
+        return self._size
+    
+    def is_empty(self) -> bool:
+        return self._size == 0
+    
+    
