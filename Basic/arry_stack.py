@@ -32,3 +32,7 @@ class ArryStack:
     def to_list(self) -> list[int]:
         """Look at the stack through the list"""
         return self._stack
+
+
+if __name__ == "__main__":
+    pass
