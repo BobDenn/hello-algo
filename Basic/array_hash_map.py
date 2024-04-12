@@ -75,4 +75,5 @@ if __name__ == '__main__':
     myhash.put(16750, "小算")
     myhash.put(13276, "小法")
     myhash.put(10583, "小鸭")
+    print(myhash.get(12836))
     myhash.print_h()
