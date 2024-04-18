@@ -89,5 +89,4 @@ class HashMapOpenAddressing:
                 print('TOMBSTONE')
             else:
                 print(pair.key, "->", pair.val)
-
     
