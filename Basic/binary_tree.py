@@ -37,4 +37,4 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
-    level_order(n1)
+    print(level_order(n1))
