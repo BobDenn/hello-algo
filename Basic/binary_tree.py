@@ -26,6 +26,18 @@ def level_order(root: TreeNode | None) -> list[int]:
     return res # 返回结果
 
 
+def pre_order(root: TreeNode) -> list[int]:
+    pass
+
+
+def in_order(root: TreeNode) -> list[int]:
+    pass
+
+
+def post_order(root: TreeNode) -> list[int]:
+    pass
+
+
 if __name__ == "__main__":
     # 初始化二叉树
     n1 = TreeNode(1)
