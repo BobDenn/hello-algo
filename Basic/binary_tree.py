@@ -27,15 +27,36 @@ def level_order(root: TreeNode | None) -> list[int]:
 
 
 def pre_order(root: TreeNode) -> list[int]:
-    pass
+    """前序遍历  根-左-右"""
+    res = []
+    if root is None:
+        return
+    res.append(root.val)
+    pre_order(root=root.left)
+    pre_order(root=root.right)
+    return res
 
 
 def in_order(root: TreeNode) -> list[int]:
-    pass
+    """中序遍历 左-右-根"""
+    res = []
+    if root is None:
+        return
+    in_order(root=root.left)
+    res.append(root.val)
+    in_order(root=root.right)
+    return res
 
 
 def post_order(root: TreeNode) -> list[int]:
-    pass
+    """后序遍历"""
+    res = []
+    if root is None:
+        return
+    post_order(root=root.left)
+    post_order(root=root.right)
+    res.append(root.val)
+    return res
 
 
 if __name__ == "__main__":
