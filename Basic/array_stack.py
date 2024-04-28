@@ -1,4 +1,4 @@
-class ArryStack:
+class ArrayStack:
     """基于动态数组实现栈"""
     def __init__(self) -> None:
         """initial"""
