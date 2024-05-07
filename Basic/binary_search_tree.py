@@ -60,14 +60,15 @@ class BinarySearchTree:
         if self._root is None:
             return
         # 循环查找, 越过叶节点后跳出
-        cur, Pre = self._root, None
+        cur, pre = self._root, None
         while cur is not None:
             # 找到待删除节点, 跳出循环
             if cur.val == num:
                 break
+            # 记录遍历的上一个节点
             pre = cur
             # 待删除节点在cur的右子树中
-            if cur.val < num:
+            if num > cur.val:
                 cur = cur.right
             # 待删除节点在cur的左子树中
             else:
@@ -77,5 +78,23 @@ class BinarySearchTree:
             return
         # 子节点数量 = 0 / 1
         if cur.left is None or cur.right is None:
-            # 当子节点数量
-
+            # 当子节点数量 = 0 / 1 
+            child = cur.left or cur.right
+            # 删除节点 cur
+            if cur != self._root:
+                if pre.left == cur:
+                    pre.left = child
+                else:
+                    pre.right = child
+            else:
+                # 若删除节点是根节点, 则重新指定根节点
+                self._root = child
+        # 子节点数量 = 2
+        else:
+            # 获取中序遍历中cur的下有一个节点
+            tmp: TreeNode = cur.right
+            while tmp.left is not None:
+                tmp = tmp.left
+            # 递归删除节点 tmp
+            self.remove(tmp.val)
+            cur.val = tmp.val
