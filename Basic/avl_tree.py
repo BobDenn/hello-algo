@@ -30,3 +30,4 @@ class Avl_tree:
         # 节点平衡因子 = 左子树 - 右子树
         return self.height(node.left) - self.height(node.right)
         
+    
