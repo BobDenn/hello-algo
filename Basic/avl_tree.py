@@ -54,3 +54,28 @@ class Avl_tree:
         self.update_height(child)
         return child
 
+    def rotate(self, node: "Avl_tree.node" | None):
+        """针对不同情况, 进行旋转操作, 使该子树重新恢复平衡"""
+        factor = self.balance_factor(node)
+        # 左偏树
+        if factor > 1:
+            if self.balance_factor(node.left) >= 0:
+                # 右旋 
+                return self.right_rotate(node)
+            else:
+                # 先左旋后右旋
+                node.left = self.left_rotate(node.left)
+                return self.right_rotate(node)
+        # 右偏树        
+        elif factor < -1:
+            if self.balance_factor(node.right) <= 0:
+                # 左旋
+                return self.left_rotate(node)
+            else:
+                # 先右旋后左旋
+                node.right = self.right_rotate(node.right)
+                return self.left_rotate(node)
+        # 平衡树, 无需旋转, 直接返回
+        return node
+
+        
