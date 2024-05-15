@@ -7,6 +7,9 @@ class Avl_tree:
             self.height = 0
             self.left = None
             self.right = None
+            
+    def __init__(self) -> None:
+        self._root = self.node()
     
     def height(node: "Avl_tree.node") -> int:
         """获取节点高度"""
@@ -78,4 +81,22 @@ class Avl_tree:
         # 平衡树, 无需旋转, 直接返回
         return node
 
-        
+    def insert(self, val):
+        """插入节点"""
+        self._root = self.insert_helper(self._root, val)
+    
+    def insert_helper(self, node: "Avl_tree.node", val: int):
+        """辅助插入"""
+        if node is None:
+            return Avl_tree.node(val)
+        # 查找位置, 插入节点
+        if val < node.val:
+            node.left = self.insert_helper(node.left, val)
+        elif val > node.val:
+            node.right = self.insert_helper(node.left, val)    
+        else:
+            # 重复节点不插入 直接返回
+            return node
+        # 别忘了更新节点高度
+        self.update_height(node)
+        return self.rotate(node)
