@@ -100,3 +100,36 @@ class Avl_tree:
         # 别忘了更新节点高度
         self.update_height(node)
         return self.rotate(node)
+
+    def remove(self, val: int):
+        """删除节点"""
+        self._root = self.remove_helper(self._root, val)
+    
+    def remove_helper(self, node: "Avl_tree.node" | None, val:int) -> "Avl_tree.node" | None:
+        """辅助删除"""
+        if node is None:
+            return None
+        # 开始递归删除
+        if val < node.val:
+            return self.remove_helper(node.left, val)         
+        elif val > node.val:
+            return self.remove_helper(node.right, val)
+        else:
+            if node.left is None or node.right is None:
+                child = node.left or node.right
+                if child is None:
+                    return None
+                else:
+                    node = child
+            else:
+                # 子节点数量
+                temp = node.right
+                while temp.left is not None:
+                    temp = temp.left
+                node.right = self.remove_helper(node.right, temp.val)
+                node.val = temp.val
+        # 更新节点高度
+        self.update_height(node)
+        # 2. 执行旋转操作，使该子树重新恢复平衡
+        return self.rotate(node)     
+                       
