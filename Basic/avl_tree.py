@@ -9,7 +9,7 @@ class Avl_tree:
             self.right = None
             
     def __init__(self) -> None:
-        self._root = self.node()
+        self._root = None
     
     def height(node: "Avl_tree.node") -> int:
         """获取节点高度"""
@@ -22,8 +22,8 @@ class Avl_tree:
     def update_height(self, node: "Avl_tree.node" | None):
         """更新节点高度"""
         # 节点高度 = 最高子树 + 1
-        node.height = max([self.height(self.node.left)],
-                          [self.height(self.node.right)]) + 1
+        node.height = max(self.height(self.node.left),
+                          self.height(self.node.right)) + 1
         
     def balance_factor(self, node: "Avl_tree.node" | None) -> int:
         """获取平衡因子"""
@@ -93,7 +93,7 @@ class Avl_tree:
         if val < node.val:
             node.left = self.insert_helper(node.left, val)
         elif val > node.val:
-            node.right = self.insert_helper(node.left, val)    
+            node.right = self.insert_helper(node.right, val)    
         else:
             # 重复节点不插入 直接返回
             return node
@@ -109,11 +109,11 @@ class Avl_tree:
         """辅助删除"""
         if node is None:
             return None
-        # 开始递归删除
+        # 开始递归删除并更新
         if val < node.val:
-            return self.remove_helper(node.left, val)         
+            node.left = self.remove_helper(node.left, val)         
         elif val > node.val:
-            return self.remove_helper(node.right, val)
+            node.right = self.remove_helper(node.right, val)
         else:
             if node.left is None or node.right is None:
                 child = node.left or node.right
