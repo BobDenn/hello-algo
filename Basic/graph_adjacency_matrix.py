@@ -26,7 +26,7 @@ class GraphAdjMat:
             row.append(0)
             
     def remove_vertex(self, index: int):
-        if index > self.size():
+        if index >= self.size():
             raise IndexError("索引溢出")
         self.vertices.pop(index)
         self.adj_mat.pop(index)
@@ -40,7 +40,7 @@ class GraphAdjMat:
         self.adj_mat[j][i] = 1
     
     def remove_edge(self, i: int, j: int):
-        if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
+        if i >= self.size() or j >= self.size() or i == j:
             raise IndexError()
         self.adj_mat[i][j] = 0
         self.adj_mat[j][i] = 0
@@ -48,5 +48,13 @@ class GraphAdjMat:
     def print_matrix(self):    
         print(" 顶点列表 = ", self.vertices)
         print(" 邻接矩阵 = ")
-        self.print_matrix(self.adj_mat)
+        for row in self.adj_mat:
+            print(row)
+            
+            
+if __name__ == '__main__':
+    vertices = [0, 1, 2, 3]
+    edges = [[0, 1], [0, 2], [1, 3], [2, 3]]
+    graph = GraphAdjMat(vertices, edges)
+    graph.print_matrix()
     
