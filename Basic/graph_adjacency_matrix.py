@@ -20,13 +20,13 @@ class GraphAdjMat:
     def add_vertex(self, val: int):
         n = self.size()
         self.vertices.append(val)
-        new_row = [0] * n
-        self.adj_mat.append(new_row)
         for row in self.adj_mat:
             row.append(0)
+        new_row = [0] * (n + 1)
+        self.adj_mat.append(new_row)
             
     def remove_vertex(self, index: int):
-        if index >= self.size():
+        if index >= self.size() or index < 0:
             raise IndexError("索引溢出")
         self.vertices.pop(index)
         self.adj_mat.pop(index)
@@ -35,13 +35,13 @@ class GraphAdjMat:
 
     def add_edge(self, i: int, j: int):
         if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
-            raise IndexError()
+            raise IndexError("无效的边索引")
         self.adj_mat[i][j] = 1
         self.adj_mat[j][i] = 1
     
     def remove_edge(self, i: int, j: int):
         if i >= self.size() or j >= self.size() or i == j:
-            raise IndexError()
+            raise IndexError("无效的边索引")
         self.adj_mat[i][j] = 0
         self.adj_mat[j][i] = 0
     
@@ -50,7 +50,7 @@ class GraphAdjMat:
         print(" 邻接矩阵 = ")
         for row in self.adj_mat:
             print(row)
-            
+        
             
 if __name__ == '__main__':
     vertices = [0, 1, 2, 3]
