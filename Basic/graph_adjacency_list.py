@@ -30,5 +30,24 @@ class GraphAdjList:
         self.adj_list[vet1].remove(vet2)
         self.adj_list[vet2].remove(vet1)
             
-            
+    def add_vertex(self, vet: Vertex):            
+        if vet in self.adj_list:
+            return
+        self.adj_list[vet] = []
+        
+    def remove_vertex(self, vet: Vertex):
+        if vet not in self.adj_list:
+            raise ValueError()
+        # 删除顶点
+        self.adj_list.pop(vet)
+         #遍历其他顶点的链表，删除所有包含vet的边
+        for vertex in self.adj_list:
+            if vet in self.adj_list[vertex]:
+                self.adj_list[vertex].remove(vet)
+                
+    def print(self):
+        print("邻接表= ")
+        for vertex in self.adj_list:
+            tmp = [v.val for v in self.adj_list[vertex]]
+            print(f"{vertex.val}: {tmp},")
             
