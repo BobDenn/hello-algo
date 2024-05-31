@@ -1,7 +1,25 @@
 class Vertex:
     """顶点类"""
     def __init__(self, val) -> None:
-        self.value = val
+        self.value: int = val
+        
+    def __str__(self):
+        """返回一个用户友好的字符串表示"""
+        return f"Vertex({self.value})"
+    
+    def __repr__(self):
+        """返回一个正式的字符串表示"""
+        return f"Vertex({self.value})"
+
+    def __eq__(self, other) -> bool:
+        """定义顶点的比较方法"""
+        if isinstance(other, Vertex):
+            return self.value == other.value
+        return False
+
+    def __hash__(self):
+        """定义顶点的哈希方法, 以便在集合和字典中使用"""
+        return hash(self.value)    
 
 
 class GraphAdjList:
