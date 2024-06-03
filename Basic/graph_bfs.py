@@ -6,7 +6,7 @@ def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[int]:
     """广度优先遍历"""
     res = []
     visited = set([start_vet])
-    # 队列用于实现BFS
+    # 队列用于实现 BFS
     que = collections.deque([start_vet])
     while len(que) > 0:
         vet = que.popleft() # 队首顶点出队
