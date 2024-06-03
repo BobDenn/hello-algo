@@ -5,6 +5,7 @@ from graph_adjacency_list import GraphAdjList, Vertex
 def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[int]:
     """广度优先遍历"""
     res = []
+    # set 可以去重
     visited = set([start_vet])
     # 队列用于实现 BFS
     que = collections.deque([start_vet])
