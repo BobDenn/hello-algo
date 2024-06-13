@@ -34,4 +34,5 @@ def binary_search_insertion(nums: list[int], target: int) -> int:
 if __name__ == "__main__":    
     nums = [7, 6, 3, 1, 0, 1, 3, 9, 8]
     nums_st = sorted(nums)
-    print(binary_search_insertion(nums=nums_st, target=0))
+    print(nums_st)
+    print(binary_search_insertion(nums=nums_st, target=3))
